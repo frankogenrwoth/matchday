@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row"><div class="col">
+    <section class="article-clean">
+        <div class="container">
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
+                    <div class="intro">
+                        <h1 class="text-center">{{ matchday.match.get_match_title }}</h1>
+                        <p class="text-center"><span class="by">by</span><a href="#">Author Name</a><span class="date">Sept 8th, 2016 </span></p>
+                    </div>
+                    <div class="text">
+                        <h2>Match Overview</h2>
+                        <p>{{ matchday.match_overview}}</p>
+                        <h2>Match Prediction</h2>
+                        <p>{{ matchday.match_prediction }}</p>
+                        <h2>{{ matchday.match.home_team }} News</h2>
+                        <p>{{ matchday.home_team_news }}</p>
+                        <h2>{{ matchday.match.away_team }} News</h2>
+                        <p>{{ matchday.away_team_news }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div><div class="col-md-4" style="margin-bottom:10px;margin-top:10px;"></div></div>
+{% endblock %}
