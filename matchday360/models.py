@@ -25,7 +25,7 @@ class Match(models.Model):
         Team, on_delete=models.CASCADE, related_name="The_away_team"
     )
     competition = models.ForeignKey(Competition, on_delete=models.CASCADE)
-    matchday_date = models.CharField(max_length=10, default="")
+    matchday_date = models.DateField()
     matchday_time = models.CharField(max_length=10, default="")
 
     def __str__(self):

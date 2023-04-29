@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from matchday360.models import Team, Match, Matchday, Competition
+import datetime
 
 
 def uploadData(dict_):
@@ -30,11 +31,16 @@ def uploadData(dict_):
     except:
         competition_ = Competition.objects.create(competition_name=competition)
 
+    date_objs = matchday_date.split(".")
+    date_ = date_objs[0]
+    month_ = date_objs[1]
+    year_ = datetime.date.today().year
+
     match_ = Match.objects.create(
         home_team=home_team_,
         away_team=away_team_,
         competition=competition_,
-        matchday_date=matchday_date,
+        matchday_date=datetime.date(int(year_), int(month_), int(date_)),
         matchday_time=matchday_time,
     )
 
